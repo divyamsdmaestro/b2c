@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Truliv - Invoice</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap"
+            rel="stylesheet">
+    </head>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            width: 100%;
+            max-width: 1000px;
+            margin: 170px auto;
+            padding: 0px 30px;
+        }
+
+        p {
+            margin: 4px 0px;
+        }
+
+        .header {
+            font-weight: 600;
+            font-size: 18px;
+            text-decoration: underline;
+            width: 100%;
+            text-align: center;
+        }
+
+        .address-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        table thead {
+            text-align: left;
+            border: 2px solid black;
+            font-weight: 600;
+        }
+
+        tr th {
+            font-weight: 400;
+        }
+
+        .mt-4 {
+            margin-top: 20px;
+        }
+
+        table thead th {
+            font-weight: 600;
+            padding: 20px 6px;
+        }
+
+        .calc {
+            text-align: right;
+            padding-right: 50px;
+        }
+
+        .my-3 th {
+            padding: 1px 50px;
+        }
+
+        .mt-8 {
+            margin: 110px 0px 40px 0px;
+        }
+
+        .mt-2 {
+            margin-top: 10px;
+        }
+
+        tbody th,
+        tbody td {
+            padding: 10px 30px;
+        }
+
+        table .table-border {
+            border: 2px solid black;
+            border-top: 0px solid;
+        }
+
+        .total-amt {
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+        }
+
+        ul li {
+            margin: 7px 0px;
+            line-height: 27px;
+        }
+
+        ul {
+            margin-bottom: 80px;
+        }
+
+        h3 {
+            font-size: 17px;
+        }
+
+        .pay-btn {
+            font-weight: 700;
+            background: transparent;
+            border: none;
+            color: #808080b8;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 50px 0px 20px 0px;
+            padding: 4px 5px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
+
+    <body>
+        <h2 class="header mt-4">Tax INVOICE</h2>
+        <div class="address-info" style="gap: 20px;">
+            <div>
+                <div>
+                    <h5>BILL TO</h5>
+                    <p>{{ user.full_name }}</p>
+                    <p>{{ user.address }}</p>
+                    <p>{{ user.city.identity }}, {{ user.state.identity }}</p>
+                    <p>{{ user.country.identity }} {{ user.pincode }}</p>
+                    <p>{{ user.idp_email }}</p>
+                    <p>{{ user.phone_number }}</p>
+                </div>
+            </div>
+            <div>
+                <p><h6 style="display: inline;">Invoice date: </h6> {{ order.created|date:"d F Y" }}</p>
+                <p><h6 style="display: inline;">Invoice No: </h6> {{ order.id }}</p>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <div>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Description</th>
+                        <th>Sale Discount</th>
+                        <th>AMOUNT(INR)</th>
+                    </tr>
+                </div>
+
+            </thead>
+            <tbody>
+                {% for entity in order.cart_data.entities %}
+                    <tr class="table-border">
+                        <th scope="row">1</th>
+                        <td>
+                            <div>
+                                <p>{{ entity.entity.identity }}</p>
+                            </div>
+                        </td>
+                        <td>{{ entity.entity.sale_discount.sale_discount_percentage }}</td>
+                        <td>{{ entity.entity.price_in_inr|floatformat:2 }}</td>
+                    </tr>
+                {% endfor %}
+
+                <tr class="table-border">
+                    <th scope="row"></th>
+                    <td>
+                        <div>
+                            <p>SGST</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <p>CGST</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <p>Grand Total</p>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td>{{ order.total_price|floatformat:2 }}</td>
+                    <td>{{ (order.total_price * 0.09)|floatformat:2 }}</td>  <!-- Calculate and display SGST -->
+                    <td>{{ (order.total_price * 0.09)|floatformat:2 }}</td> <!-- Calculate and display CGST -->
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="mt-4">
+            <p style="margin-bottom: 10px;">Terms & conditions </p>
+            <ul style="padding-left: 28px;">
+                <li>This is a digitally generated invoice and does not require a signature.</li>
+            </ul>
+        </div>
+
+
+    </body>
+
+</html>

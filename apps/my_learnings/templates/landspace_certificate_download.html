@@ -1,0 +1,151 @@
+<style>
+  @page{
+      size: letter landscape;      
+      @frame content_frame {
+        width: 810px;
+        height: 200px;
+        top: 130pt;
+        left: 90pt;
+      }
+      
+      @frame description_frame{
+        -pdf-frame-content: description_content;
+        width: 660px;
+        height: 150px ;
+        margin-inline: auto;
+        top: 320pt;
+        left:  150pt;
+      }
+      @frame footer_frame{
+        -pdf-frame-content: footer_content;
+        width: 100pt;
+        height: 150pt;
+        bottom: 40pt;
+      }
+  
+  }
+body{
+  background-color: red;
+}
+  .text-center{
+  text-align: center;
+}
+ table .date{
+  padding-left: 130pt;
+  padding-right: 120pt;
+  font-size: 18px;
+  font-weight: 500;
+} 
+
+table .date p{
+  padding-top: 9px;
+  padding-left: 60pt;
+  padding-right: 0;
+  border-top: 1px solid gray;
+} 
+table .signature{
+  padding-left: 80pt;
+  font-size: 18px;
+  font-weight: 500;
+  padding-right: 150pt;
+} 
+
+table .signature p{
+  padding-top: 9px;
+  padding-left: 55pt;
+  padding-right: 0;
+  border-top: 1px solid gray;
+} 
+table .date-placeholder{
+  padding-left: 130pt;
+  padding-right: 120pt;
+}
+table .date-placeholder div{
+  padding-left: 5pt;
+  padding-right: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 0;
+  padding-top: 3.5em;
+}
+
+table .sign-placeholder{
+  padding: 0;
+  font-size: 18px;
+  padding-right: 50pt;
+}
+ table .sign-placeholder div{
+  padding: 0;
+ }
+table th{
+  height: 75pt;
+}
+
+.common-styles{
+  line-height: 0;
+  margin: 0;
+}
+
+
+.certificate-wrapper .title{
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.certificate-wrapper .subtitle{
+  font-size: 19px;
+  font-weight: 500;
+  position: relative;
+  margin-top:5px;
+}
+.certificate-wrapper .second-head{
+  font-size: 16px;
+  font-weight: 500;
+  margin: 2em 0em;
+}
+.certificate-wrapper .name{
+  font-weight: 400;
+  font-size: 44px;
+  font-style: italic;
+  text-decoration: underline;
+
+}
+.certificate-wrapper .content{
+  margin: 2.5em 0em 6em 0em;
+  font-size: 16px;
+  line-height: 22px;
+  width: 400pt;
+  margin-inline: auto;
+}
+
+</style>
+<div class="certificate-wrapper" style="border: 1px solid blue;"  id="content_frame">
+
+    <div>
+  <h1 class="text-center common-styles title">CERTIFICATE</h1>
+  <p class="text-center common-styles subtitle">Of Appreciation</p>
+</div>
+  
+  <p class="text-center common-styles second-head">This certificate is proudly presented to</p>
+  
+  <h2 class="text-center common-styles name">{{username}}</h2>
+  
+  <p class="text-center common-styles content" id="description_content">{{body_text}}</p>
+ 
+    <div id="footer_content"> 
+      <table>
+        <tr class="table-head-group">
+          <th class="date-placeholder"><div>{{created_date}}</div></th>
+          <th class="sign-placeholder">
+            <div>
+              <img src='https://b2cstagingv2.blob.core.windows.net/appuploads/media/{{image}}' />
+            </div>
+          </th>
+        </tr>
+        <tr>
+            <td class="date common-styles"><p>Date</p></td>
+            <td class="signature common-styles"><p>Signature</p></td>
+        </tr>
+     </table>
+     </div>
+  </div>

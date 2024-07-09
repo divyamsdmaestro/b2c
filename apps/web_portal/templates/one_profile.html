@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>One Profile Download</title>
+    <style>
+    body {
+      margin:0px;
+      padding:0px;
+      font-family: "Poppins", sans-serif;
+      }
+
+      .heading_container{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .heading{
+        font-size: 23px;
+        font-weight: 500;
+        color: #012148;
+      }
+
+      .container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        width: 100%;
+        
+      }
+
+      .image_container{
+        width: 20%;
+      }
+
+      .profile_img {
+        width: 120px;
+        height: 120px;
+        -o-object-fit: cover;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .information {
+        margin-left: 24px;
+        width: 80%;
+        
+      }
+
+      .information_title {
+        font-size: 14px;
+        font-weight: 500;
+        color: #00224b;
+      }
+
+      .title {
+        font-size: 13px;
+        font-weight: 400;
+        color: #68747b;
+      }
+
+      .value {
+        font-size: 16px;
+        font-weight: 400;
+        color: #012148;
+      }
+
+      .information_content {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin-left: 30px;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+
+      .row {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+      }
+
+      .email_column{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        margin-bottom: 20px;
+        margin-left: 10px;
+        width:200px;
+      }
+
+      .column {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        margin-bottom: 20px;
+        margin-left: 10px;
+        width:160px;
+        
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid #68747b;
+        margin-block: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="heading_container">
+      <span class="heading">
+        One Profile
+      </span>
+    </div>
+    <div class="container">
+      <div class="image_container">
+        <!-- <img
+        src="https://b2cstagingv2.blob.core.windows.net/appuploads/media/{{profile_image}}"
+        class="profile_img"
+      /> -->
+      </div>
+      <div class="information">
+        <div class="row">
+          <span class="information_title">Student Information</span>
+          <div class="information_content">
+            <div class="column">
+              <span class="title"> Student Name </span>
+              <span class="value"> {{ full_name }} </span>
+            </div>
+            <div class="column">
+              <span class="title"> Mobile Number </span>
+              <span class="value">{{ mobile_number }} </span>
+            </div>
+            <div class="email_column">
+              <span class="title" > Email </span>
+              <span class="value"> {{ email }}</span>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+          <span class="information_title">Personal Information</span>
+          <div class="information_content">
+            <div class="column">
+              <span class="title"> Gender </span>
+              <span class="value"> {{ gender }} </span>
+            </div>
+            <!-- <div class="column">
+              <span class="title"> Martial Status </span>
+              <span class="value"> {{ martial_status }} </span>
+            </div> -->
+            <div class="column">
+              <span class="title"> DOB </span>
+              <span class="value">{{ dob }}</span>
+            </div>
+            <div class="column">
+              <span class="title"> Identification Type </span>
+              <span class="value">{{ identification_type }}</span>
+            </div>
+            <div class="column">
+              <span class="title"> Identification Number </span>
+              <span class="value">{{ identification_number }}</span>
+            </div>
+            <div class="column">
+              <span class="title"> Address </span>
+              <span class="value">{{ address }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

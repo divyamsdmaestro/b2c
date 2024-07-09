@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Certificate Template</title>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        color: #012148;
+      }
+
+      p{
+        margin: 0px;
+      }
+
+      h1 {
+        margin-bottom: 0px;
+      }
+
+      .certificate_sub_heading {
+        font-size: 19px;
+        font-weight: 500;
+      }
+
+
+      .image_container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+
+      .logo_img {
+        width: 300px;
+        height: 32px;
+        object-fit: cover;
+        margin-block: 20px;
+      }
+
+      .certificate_content_heading {
+        font-size: 16px;
+        font-weight: 500;
+        margin-top: 24px;
+        margin-bottom: 24px;
+      }
+
+      .certificate_content_user_name {
+        width: 100%;
+        border-bottom: 1px solid #68747b;
+        margin-top: 45px;
+        margin-bottom: 24px;
+        text-align: center;
+      }
+
+      .certificate_content_description {
+        color: #68747b;
+        text-align: center;
+      }
+
+      .certificate_content_footer {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 55px;
+      }
+      .certificate_content_date_value {
+        width: 200px;
+        margin-top: 13px;
+        border-bottom: 1px solid #68747b;
+        text-align: center;
+      }
+      .certificate_content_image_value {
+        width: 200px;
+        height: 50px;
+        object-fit: contain;
+        border-bottom: 1px solid #68747b;
+      }
+      .column {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .certificate_content_date_title,
+      .certificate_content_image_title {
+        text-align: center;
+      }
+
+      .text_center{
+        width: 100%;
+        text-align: center;
+      }
+
+    </style>
+  </head>
+  <body>
+    
+        
+      <div class="image_container">
+        <img src="./images/logo.png" class="logo_img" />
+      </div>
+       
+        <h1 class="certificate_heading text_center">CERTIFICATE</h1>
+        <p class="certificate_sub_heading text_center">Of Completion</p>
+        <p class="certificate_content_heading text_center">
+          This certificate is awarded to
+        </p>
+        <p class="certificate_content_user_name text_center">{{username}} </p>
+        <p class="certificate_content_description text_center">
+          {{body_text}}
+        </p>
+
+        <div class="certificate_content_footer">
+          <div class="column">
+            <p class="certificate_content_date_value">{{created_date}}</p>
+            <p class="certificate_content_date_title">Date </p>
+          </div>
+          <div class="column">
+            <img src="https://b2cstagingv2.blob.core.windows.net/appuploads/media/{{image}}" class="certificate_content_image_value" />
+            <!-- <img
+              src="https://static.cdn.wisestamp.com/wp-content/uploads/2020/08/Michael-Jordan-personal-autograph.png"
+              class="certificate_content_image_value"
+            /> -->
+
+            <p class="certificate_content_image_title">Signature</p>
+          </div>
+        </div>
+  </body>
+</html>
+
+
+<!-- <body>
+    <p>Certificate Name :  {{ identity }}</p>
+    <img src="https://b2cstagingv2.blob.core.windows.net/appuploads/media/{{sponsor_logo}}" style="width:200px;height:200px;object-fit: cover;">
+    <p>Techademy Logo :  {{ keep_techademy_logo }}</p>
+    <p>Headline Text :  {{ headline_text }}</p>
+    <p>Body Text :  {{ body_text }}</p>
+    <img src="https://b2cstagingv2.blob.core.windows.net/appuploads/media/{{image}}" style="width:200px;height:200px;object-fit: cover;">
+ </body> -->
+ 

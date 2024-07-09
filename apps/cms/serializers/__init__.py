@@ -1,0 +1,5 @@
+from .hackathon import HackathonPrizeDetailsSerializer, HackathonListSerializer, HackathonRoundDetailsSerializer, HackathonJobListSerializer
+from .role import RolePermissionDetailSerializer
+from .student import StaffSerializer, StudentSerializer, StudentDetailSerializer
+from .forum import PostSerializer, ForumSerializer, PollOptionsHandleSerializer, UserProfileSerializer, ZoneAppliedListSerializer, ZoneSerializer, ForumCreateSerializer, ZoneSkillSerializer
+from .blended_learning_path import ScheduleDetailsCreateSerializer
