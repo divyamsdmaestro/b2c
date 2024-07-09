@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-b2c-deployment  #your-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: b2c-app   #your-app
+  template:
+    metadata:
+      labels:
+        app: b2c-app #your-app
+    spec:
+      containers:
+      - name: b2c-container #your-container
+        image: divyamsdmaestro044/b2c-docker-image:latest
+        ports:
+        - containerPort: 8000
