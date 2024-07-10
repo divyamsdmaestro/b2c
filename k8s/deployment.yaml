@@ -1,20 +1,39 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: k8s-b2c-deployment  #your-deployment
-  namespace: k8s-namespace #your-namespace
+  name: k8s-b2c-deployment  # your-deployment
+  namespace: k8s-namespace  # your-namespace
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: b2c-app   #your-app
+      app: b2c-app   # your-app
   template:
     metadata:
       labels:
-        app: b2c-app #your-app
+        app: b2c-app   # your-app
     spec:
       containers:
-      - name: b2c-container #your-container
+      - name: b2c-container   # your-container
         image: divyamsdmaestro044/b2c-docker-image:latest
         ports:
         - containerPort: 8000
+        resources:
+          requests:
+            cpu: "0.1"
+            memory: "100Mi"
+          limits:
+            cpu: "0.5"
+            memory: "500Mi"
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - b2c-app
+            topologyKey: "kubernetes.io/hostname"
+      nodeSelector:
+        nodeType: compute   # Adjust as per your node labels
